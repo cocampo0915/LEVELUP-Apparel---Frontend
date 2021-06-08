@@ -1,4 +1,5 @@
 import React from 'react';
+import './CheckoutSteps.css';
 
 function CheckoutSteps(props) {
     return <div className="checkout-steps">

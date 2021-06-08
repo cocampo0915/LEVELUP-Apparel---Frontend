@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import './HomeScreen.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../actions/productActions';
-import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
+import { listProducts } from '../../../actions/productActions';
+
 
 function HomeScreen(props) {
   const productList = useSelector(state => state.productList);

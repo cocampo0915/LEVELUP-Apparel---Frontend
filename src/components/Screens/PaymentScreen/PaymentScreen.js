@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import './PaymentScreen.css';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { savePayment } from '../actions/cartActions';
-import CheckoutSteps from '../components/CheckoutSteps';
+import { savePayment } from '../../../actions/cartActions';
+import CheckoutSteps from '../../CheckoutSteps/CheckoutSteps';
 
 function PaymentScreen(props) {
 
@@ -13,7 +14,7 @@ function PaymentScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePayment({paymentMethod}));
-    props.history.push('placeorder');
+    props.history.push('/placeorder');
   }
 
   return (
@@ -27,11 +28,18 @@ function PaymentScreen(props) {
             </li>
 
             <li> 
-              <div>
+              <div className="payment-options">
                 <input type="radio" name="paymentMethod" id="paymentMethod" value="payment" onChange={(e) => setPaymentMethod(e.target.value)}>
                 </input>
                 <label htmlFor="paymentMethod">
                   Paypal
+                </label>
+                <br></br>
+                <br></br>
+                <input type="radio" name="paymentMethod" id="paymentMethod" value="payment" onChange={(e) => setPaymentMethod(e.target.value)}>
+                </input>
+                <label htmlFor="paymentMethod">
+                  Credit Card
                 </label>
               </div>
             </li>

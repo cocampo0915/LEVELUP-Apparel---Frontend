@@ -1,21 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
-import CartScreen from './Screens/CartScreen';
-import HomeScreen from './Screens/HomeScreen';
-import ProductScreen from './Screens/ProductScreen';
-import SigninScreen from './Screens/SigninScreen';
-import { useDispatch, useSelector } from 'react-redux';
-import RegisterScreen from './Screens/RegisterScreen';
-import ProductsScreen from './Screens/ProductsScreen';
-import ShippingScreen from './Screens/ShippingScreen';
-import PaymentScreen from './Screens/PaymentScreen';
-import PlaceOrderScreen from './Screens/PlaceOrderScreen';
-import Sidebar from './components/Sidebar';
 
+import ProductsScreen from './components/Screens/ProductsScreen/ProductsScreen';
+import AboutUsScreen from './components/Screens/AboutUsScreen/AboutUsScreen';
+import CartScreen from './components/Screens/CartScreen/CartScreen';
+import TestimonialsScreen from './components/Screens/TestimonialsScreen/TestimonialsScreen';
+import HomeScreen from './components/Screens/HomeScreen/HomeScreen';
+import ProductScreen from './components/Screens/ProductScreen/ProductScreen';
+import RegisterScreen from './components/Screens/RegisterScreen/RegisterScreen';
+import SigninScreen from './components/Screens/SigninScreen/SigninScreen';
+import PlaceOrderScreen from './components/Screens/PlaceOrderScreen/PlaceOrderScreen';
+import PaymentScreen from './components/Screens/PaymentScreen/PaymentScreen';
+import ShippingScreen from './components/Screens/ShippingScreen/ShippingScreen';
+import Sidebar from './components/Sidebar/Sidebar';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from  './actions/userActions';
-import AboutUsScreen from './Screens/AboutUsScreen';
-import TestimonialsScreen from './Screens/TestimonialsScreen';
 
 function App() {
 

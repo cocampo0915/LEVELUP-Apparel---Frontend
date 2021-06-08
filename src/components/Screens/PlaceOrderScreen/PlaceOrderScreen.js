@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import './PlaceOrderScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CheckoutSteps from '../components/CheckoutSteps';
+import CheckoutSteps from '../../CheckoutSteps/CheckoutSteps';
 
 function PlaceOrderScreen(props) {
 
