@@ -12,11 +12,11 @@ function Sidebar(props) {
         <button className="sidebar-close-button" onClick={closeMenu}>x</button>
         <ul>
           <li>
-            <a href="index.html">Pants</a>
+            <a href="index.html">Tops</a>
           </li>
     
           <li>
-            <a href="index.html">Shirts</a>
+            <a href="index.html">Bottoms</a>
           </li>
     
         </ul>

@@ -14,6 +14,8 @@ import PlaceOrderScreen from './Screens/PlaceOrderScreen';
 import Sidebar from './components/Sidebar';
 
 import { logout } from  './actions/userActions';
+import AboutUsScreen from './Screens/AboutUsScreen';
+import TestimonialsScreen from './Screens/TestimonialsScreen';
 
 function App() {
 
@@ -40,11 +42,11 @@ function App() {
     <div className="grid-container">
     <header className="header">
       <div className="header-links left">
-        <button onClick={openMenu}>
+        <Link onClick={openMenu}>
           SHOP &#9661;
-        </button>
-        <Link to="/aboutus">About Us</Link>
-        <Link to="/testimonials">Testimonials</Link>
+        </Link>
+        <Link to="/aboutus">ABOUT US</Link>
+        <Link to="/testimonials">TESTIMONIALS</Link>
       </div>
       <div className="brand">
         <Link to="/">LEVELUP</Link>
@@ -53,16 +55,16 @@ function App() {
         {
           userInfo ? 
           <Link to="/profile">{userInfo.name}</Link> :
-          <Link to="/signin">Sign In</Link>
+          <Link to="/signin">SIGN IN</Link>
         }
-        <a href="cart">Cart</a>
+        <a href="cart">CART</a>
         {
           userInfo ? 
-          <Link to="/products">Admin</Link> : ''
+          <Link to="/products">ADMIN</Link> : ''
         }
         {
           userInfo ? 
-          <Link to="/" onClick={handleLogout}>Logout</Link> : ''
+          <Link to="/" onClick={handleLogout}>LOGOUT</Link> : ''
         }
       </div>
     </header>
@@ -72,6 +74,8 @@ function App() {
     <main className="main">
           <div className="content">
             <Route path="/products" component={ProductsScreen} />
+            <Route path="/aboutus" component={AboutUsScreen} />
+            <Route path="/testimonials" component={TestimonialsScreen} />
             <Route path="/shipping" component={ShippingScreen} />
             <Route path="/payment" component={PaymentScreen} />
             <Route path="/placeorder" component={PlaceOrderScreen} />
