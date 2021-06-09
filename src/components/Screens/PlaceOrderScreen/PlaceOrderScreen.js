@@ -31,10 +31,6 @@ function PlaceOrderScreen(props) {
 
   }, []);
 
-  const checkoutHandler = () => {
-    props.history.push("/signin?redirect=shipping");
-  }
-
   return <div>
     <CheckoutSteps step1 step2 step3 step4 />
     <div className="placeorder">

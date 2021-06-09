@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ProductsScreen.css';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../../../actions/userActions';
 import { saveProduct, listProducts, deleteProduct } from '../../../actions/productActions';
 
 function ProductsScreen(props) {
@@ -105,7 +103,7 @@ function ProductsScreen(props) {
             </li>
             <li>
               <label htmlFor="countInStock">
-                CountInStock
+                Count In Stock
           </label>
               <input type="text" name="countInStock" value={countInStock} id="countInStock" onChange={(e) => setCountInStock(e.target.value)}>
               </input>
@@ -152,7 +150,7 @@ function ProductsScreen(props) {
           {products.map(product => (<tr key={product._id}>
             <td>{product._id}</td>
             <td>{product.name}</td>
-            <td>{product.price}</td>
+            <td>${product.price}</td>
             <td>{product.category}</td>
             <td>{product.brand}</td>
             <td>

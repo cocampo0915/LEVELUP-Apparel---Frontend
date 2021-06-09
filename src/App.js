@@ -21,7 +21,7 @@ import { logout } from  './actions/userActions';
 function App() {
 
   const userSignin = useSelector(state => state.userSignin);
-  const { userInfo, isAdmin } = userSignin;
+  const { userInfo } = userSignin;
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -31,10 +31,6 @@ function App() {
 
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");
-  }
-
-  const closeMenu = () => {
-    document.querySelector(".sidebar").classList.remove("open");
   }
 
   return (
