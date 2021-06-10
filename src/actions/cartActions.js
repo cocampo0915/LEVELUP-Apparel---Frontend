@@ -2,6 +2,8 @@ import Axios from "axios";
 import Cookie from "js-cookie";
 import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_SHIPPING, CART_SAVE_PAYMENT } from "../constants/cartConstants";
 
+const DB_URL = 'https://levelup-apparel-backend.herokuapp.com';
+
 const addToCart = (productId, qty) => async (dispatch, getState) => {
   try {
     const { data } = await Axios.get("/api/products/" + productId);
