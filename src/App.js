@@ -60,7 +60,7 @@ function App() {
           <Link to="/profile">{userInfo.name}</Link> :
           <Link to="/signin">SIGN IN</Link>
         }
-        <a href="cart">CART</a>
+        <Link to="/cart">CART</Link>
         {
           userInfo && userInfo.isAdmin ? 
           <Link to="/products">ADMIN</Link> : ''
