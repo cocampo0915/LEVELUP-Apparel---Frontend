@@ -41,14 +41,19 @@ function ProductScreen(props) {
             <h2>{product.name}</h2>
           </li>
           <li>
-            {product.rating} Stars ({product.numReviews} Reviews)
+            {/* {product.rating}  */}
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span> Stars 
+            ({product.numReviews} Reviews)
           </li>
+
           <li>
-            <b>Price:</b>${product.price}
-          </li>
-          <li>
-            <b>Description:</b> 
-            <div>
+            <b>Description:</b>
+            <br /> 
+            <div className="details-description">
               {product.description}
             </div>
           </li>
@@ -57,13 +62,13 @@ function ProductScreen(props) {
       <div className="details-action">
         <ul>
           <li>
-            Price: ${product.price}
+            <b>Price:</b> ${product.price}
           </li>
           <li>
-            Status: {product.countInStock > 0 ? "In Stock" : "Unavailable"}
+            <b>Status:</b> {product.countInStock > 0 ? "In Stock" : "Unavailable"}
           </li>
           <li>
-            Qty: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+            <b>Qty:</b> <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
               {[...Array(product.countInStock).keys()].map(x => 
                 <option key={x + 1} value={x + 1}>{x + 1}</option>  
               )}

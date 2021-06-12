@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
-
-import ProductsScreen from './components/Screens/ProductsScreen/ProductsScreen';
-import AboutUsScreen from './components/Screens/AboutUsScreen/AboutUsScreen';
-import CartScreen from './components/Screens/CartScreen/CartScreen';
-import TestimonialsScreen from './components/Screens/TestimonialsScreen/TestimonialsScreen';
+// components
 import HomeScreen from './components/Screens/HomeScreen/HomeScreen';
 import ProductScreen from './components/Screens/ProductScreen/ProductScreen';
-import RegisterScreen from './components/Screens/RegisterScreen/RegisterScreen';
+import ProductsScreen from './components/Screens/ProductsScreen/ProductsScreen';
+import CartScreen from './components/Screens/CartScreen/CartScreen';
 import SigninScreen from './components/Screens/SigninScreen/SigninScreen';
-import PlaceOrderScreen from './components/Screens/PlaceOrderScreen/PlaceOrderScreen';
-import PaymentScreen from './components/Screens/PaymentScreen/PaymentScreen';
+import AboutUsScreen from './components/Screens/AboutUsScreen/AboutUsScreen';
+import TestimonialsScreen from './components/Screens/TestimonialsScreen/TestimonialsScreen';
+import RegisterScreen from './components/Screens/RegisterScreen/RegisterScreen';
 import ShippingScreen from './components/Screens/ShippingScreen/ShippingScreen';
+import PaymentScreen from './components/Screens/PaymentScreen/PaymentScreen';
+import PlaceOrderScreen from './components/Screens/PlaceOrderScreen/PlaceOrderScreen';
+import OrderScreen from './components/Screens/OrderScreen/OrderScreen';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,7 +31,12 @@ function App() {
   }
 
   const openMenu = () => {
-    document.querySelector(".sidebar").classList.add("open");
+    if (document.querySelector(".sidebar").classList.contains("open")) {
+      document.querySelector(".sidebar").classList.remove("open");
+    }
+    else {
+      document.querySelector(".sidebar").classList.add("open");
+    }
   }
 
   return (
@@ -56,7 +62,7 @@ function App() {
         }
         <a href="cart">CART</a>
         {
-          userInfo ? 
+          userInfo && userInfo.isAdmin ? 
           <Link to="/products">ADMIN</Link> : ''
         }
         {
@@ -70,6 +76,7 @@ function App() {
     </aside>
     <main className="main">
           <div className="content">
+            <Route path="/order/:id" component={OrderScreen} />
             <Route path="/products" component={ProductsScreen} />
             <Route path="/aboutus" component={AboutUsScreen} />
             <Route path="/testimonials" component={TestimonialsScreen} />

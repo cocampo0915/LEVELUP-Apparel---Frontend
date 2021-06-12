@@ -14,7 +14,7 @@ function cartReducer(state={cartItems: [], shipping: {}, payment: {} }, action) 
             }
             return { cartItems: [...state.cartItems, item] };
         case CART_REMOVE_ITEM:
-            return { cartItems: state.cartItems.filter(x=>x.product!== action.payload)}   
+            return { cartItems: state.cartItems.filter(x => x.product !== action.payload) }   
         
         case CART_SAVE_SHIPPING:
             return {...state, shipping: action.payload }
@@ -26,4 +26,4 @@ function cartReducer(state={cartItems: [], shipping: {}, payment: {} }, action) 
     }
 }
 
-export {cartReducer};
+export { cartReducer };

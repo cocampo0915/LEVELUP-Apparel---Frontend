@@ -9,18 +9,20 @@ function Sidebar(props) {
 
     return (
         <>
-        <h3>Shopping Categories</h3>
-        <button className="sidebar-close-button" onClick={closeMenu}>x</button>
-        <ul>
-          <li>
-            <a href="index.html">Tops</a>
-          </li>
-    
-          <li>
-            <a href="index.html">Bottoms</a>
-          </li>
-    
-        </ul>
+        <div className="sidebar-details">
+          <h3>Shopping Categories</h3>
+          <button className="sidebar-close-button" onClick={closeMenu}>x</button>
+          <ul className="sidebar-list">
+            <li>
+              <a href="/">Tops</a>
+            </li>
+      
+            <li>
+              <a href="/">Bottoms</a>
+            </li>
+      
+          </ul>
+        </div>
         </>
     )
 }

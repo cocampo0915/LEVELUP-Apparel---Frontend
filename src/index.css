@@ -35,6 +35,7 @@ button{
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
+  z-index: 2;
 }
 
 .brand {
@@ -59,6 +60,7 @@ button{
 }
 .main{
   grid-area: main;
+  z-index: 0;
 }
 .footer{
   grid-area: footer;
@@ -125,6 +127,9 @@ input{
   border-radius: .5rem;
 }
 
+.checked {
+  color: orange;
+}
 
 
 

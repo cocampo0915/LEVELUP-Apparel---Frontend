@@ -1,16 +1,25 @@
 import axios from "../axios";
 import { 
-  PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL,
-  PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_SAVE_REQUEST, PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_FAIL, PRODUCT_DELETE_REQUEST
+  PRODUCT_LIST_REQUEST, 
+  PRODUCT_LIST_SUCCESS, 
+  PRODUCT_LIST_FAIL,
+  PRODUCT_DETAILS_REQUEST, 
+  PRODUCT_DETAILS_SUCCESS, 
+  PRODUCT_DETAILS_FAIL, 
+  PRODUCT_SAVE_REQUEST, 
+  PRODUCT_SAVE_SUCCESS, 
+  PRODUCT_SAVE_FAIL, 
+  PRODUCT_DELETE_SUCCESS, 
+  PRODUCT_DELETE_FAIL, 
+  PRODUCT_DELETE_REQUEST
 } from "../constants/productConstants"
 
 
 // axios.defaults.baseURL = 'https://levelup-apparel-backend.herokuapp.com/';
 // axios.defaults.baseURL = 'http://localhost:5000';
 
-const listProducts = () => async (dispatch) => {
+const listProducts = () => async (dispatch, getState) => {
   try {
-
     dispatch({ type: PRODUCT_LIST_REQUEST });
     const { data } = await axios.get("/api/products");
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
@@ -64,7 +73,7 @@ const deleteProduct = (productId) => async (dispatch, getState) => {
     dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
     const { data } = await axios.delete("/api/products/" + productId, {
       headers: {
-        Authorization: 'Bearer ' + userInfo.token
+        'Authorization': 'Bearer ' + userInfo.token
       }
     });
     dispatch({ type: PRODUCT_DELETE_SUCCESS, payload: data, success: true });

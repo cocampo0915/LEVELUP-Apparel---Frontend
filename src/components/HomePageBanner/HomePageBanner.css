@@ -1,10 +1,24 @@
 .HomePageBanner {
+    display: flex;
     background-color: darkgray;
     color: white;
+    height: 30rem;
 }
 
 .banner-image {
-    max-width: 500px;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 }
 
+.banner-text-div {
+    margin-left: 5rem;
+}
+
+.banner-text-div h1 {
+    letter-spacing: 0.3rem;
+}
+
+.banner-text-div h3 {
+    font-weight: normal;
+}

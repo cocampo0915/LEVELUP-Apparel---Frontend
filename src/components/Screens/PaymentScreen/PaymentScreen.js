@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './PaymentScreen.css';
 import { useDispatch } from 'react-redux';
 import { savePayment } from '../../../actions/cartActions';
@@ -13,7 +14,7 @@ function PaymentScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePayment({ paymentMethod }));
-    props.history.push('/placeorder');
+    props.history.push('placeorder');
   }
 
   return (

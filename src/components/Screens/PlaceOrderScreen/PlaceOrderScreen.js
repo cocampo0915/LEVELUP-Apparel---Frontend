@@ -3,10 +3,13 @@ import './PlaceOrderScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../../CheckoutSteps/CheckoutSteps';
+import { createOrder } from '../../../actions/orderActions';
 
 function PlaceOrderScreen(props) {
 
   const cart = useSelector(state => state.cart);
+  const orderCreate = useSelector(state => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
 
   const { cartItems, shipping, payment } = cart;
   if(!shipping.address) {
@@ -25,13 +28,23 @@ function PlaceOrderScreen(props) {
 
   const placeOrderHandler = () => {
     // create an order
+    dispatch(createOrder({
+      orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice, taxPrice, totalPrice
+    }));
+  }
+  
+  useEffect(() => {
+    if(success) {
+      props.history.push('/order/' + order._id);
+    }
+  }, [success]);
+
+  const checkoutHandler = () => {
+    props.history.push('/signin?redirect=shipping');
   }
 
-  useEffect(() => {
-
-  }, []);
-
-  return <div>
+  return (
+  <div>
     <CheckoutSteps step1 step2 step3 step4 />
     <div className="placeorder">
       <div className="placeorder-info">
@@ -40,8 +53,11 @@ function PlaceOrderScreen(props) {
             Shipping
           </h3>
           <div>
-            {cart.shipping.address}, {cart.shipping.city}
-            {cart.shipping.postalCode}, {cart.shipping.country}
+            {cart.shipping.address}, 
+            <br />
+            {cart.shipping.city}, {cart.shipping.state} {cart.shipping.postalCode}
+            <br />
+            {cart.shipping.country}
           </div>
           <div>
             <h3>Payment</h3>
@@ -121,6 +137,7 @@ function PlaceOrderScreen(props) {
 
     </div>
   </div>
+  )
 }
 
 export default PlaceOrderScreen;
