@@ -57,7 +57,7 @@ function App() {
       <div className="header-links">
         {
           userInfo ? 
-          <Link to="/profile">{userInfo.name}</Link> :
+          <Link to="/profile">{userInfo.name.toUpperCase()}</Link> :
           <Link to="/signin">SIGN IN</Link>
         }
         <Link to="/cart">CART</Link>

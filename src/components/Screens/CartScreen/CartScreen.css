@@ -43,6 +43,7 @@
   .cart-name {
     flex: 8 1;
     font-size: 2rem;
+    margin-left: 2rem;
   }
   .cart-price{
     flex: 1 1;

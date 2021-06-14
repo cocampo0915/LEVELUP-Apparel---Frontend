@@ -22,7 +22,7 @@ function HomeScreen(props) {
   }, [])
 
   return (
-    loading ? <div>Loading...</div> :
+    loading ? <div class="loader"></div> :
     error ? <div>{error}</div> :
     <>
     <HomePageBanner />
